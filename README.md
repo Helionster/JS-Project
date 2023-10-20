@@ -17,7 +17,7 @@ Wireframe :
     ![plot](./Wireframe.png)
 
 Technologies, Libraries, APIs: 
-    I plan on using https://wellcaffeinated.net/PhysicsJS/ to apply gravity to my projectiles. I plan on using https://itch.io/game-assets to apply sprites and texture to my game.
+    I plan on using https://wellcaffeinated.net/PhysicsJS/ to apply gravity to my projectiles. I plan on using https://itch.io/game-assets to apply sprites and texture to my game. I will also be using https://www.w3schools.com/jsref/api_canvas.asp, canvas API to generate curves for my projectiles.
 
 Implementation Timeline
     Friday Afternoon & Weekend: Implement the shooting functionality and correct gravity implemention. Register the hits on enemy tanks and decrease health.
