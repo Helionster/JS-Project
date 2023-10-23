@@ -1,18 +1,21 @@
 import Projectile from "./scripts/projectile.js";
+import Tank from "./scripts/tank.js";
+import World from "./scripts/world.js";
 
 window.Projectile = Projectile;
+window.Tank = Tank;
+window.World = World;
 
 document.addEventListener("DOMContentLoaded", () => {
     const myCanvas = document.getElementById("game-canvas");
-    myCanvas.width = 1000;
-    myCanvas.height = 750;
+
+    myCanvas.width = 500;
+    myCanvas.height = 500;
+
+    myCanvas.style.border = "1px solid red"
+
     const context = myCanvas.getContext("2d");
-    const projectile = new Projectile(0,750,45,10);
+    const world = new World(context);
 
-    setInterval(function(){
-        // context.clearRect();
-        projectile.draw(context);
-        projectile.move();
-    }, 100);
-
+    world.animate();
 });
