@@ -7,16 +7,10 @@ document.addEventListener("DOMContentLoaded", () => {
     myCanvas.width = 1000;
     myCanvas.height = 750;
     const context = myCanvas.getContext("2d");
-    const projectile = new Projectile(30,20);
-
-    // for (let i = 0; i < 100; i++) {
-    //     context.clearRect(0,0,500,500);
-    //     projectile.draw(context);
-    //     projectile.move();
-    // }
+    const projectile = new Projectile(0,750,45,10);
 
     setInterval(function(){
-        // context.clearRect(0,0,500,500);
+        // context.clearRect();
         projectile.draw(context);
         projectile.move();
     }, 100);
