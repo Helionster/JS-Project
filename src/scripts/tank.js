@@ -19,6 +19,7 @@ class Tank {
         ctx.fillStyle = this.color;
         ctx.fillRect(this.x, this.y, this.width, this.height);
         ctx.fillText(this.angle,this.x, this.y - 10);
+        ctx.fillText(this.power,this.x, this.y - 20);
     }
 
     tankSelection(tankName) {

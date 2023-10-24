@@ -39,6 +39,18 @@ class World {
                 this.currentPlayer.angle -= 1; 
             }
         });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'q' || event.key === 'Q') {
+                this.currentPlayer.power += 1;
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'e' || event.key === 'E'){
+                this.currentPlayer.power -= 1; 
+            }
+        });
     }
 
     draw() {
@@ -77,7 +89,7 @@ class World {
     }
 
     createWorld() {
-
+        
     }
 
     switchTurns() {
