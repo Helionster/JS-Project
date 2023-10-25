@@ -1,7 +1,7 @@
 class Projectile { 
     constructor(x,y,degrees,power) {
-        this.x = x; 
-        this.y = y; 
+        this.x = x + 20; 
+        this.y = y + 10; 
         this.angle = (degrees * Math.PI) / 180;
         this.power = power;
         this.gravity = 0.2;
