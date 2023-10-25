@@ -1,5 +1,6 @@
 class Tank {
-    constructor(currentPlayer,x,y,name) {
+    constructor(facing,currentPlayer,x,y,name) {
+        this.facing = facing;
         this.currentPlayer = currentPlayer;
         this.speed = 3;
         this.health = 100;
@@ -11,25 +12,45 @@ class Tank {
         this.active = false;
         this.name = name;
         this.angle = 0;
-        this.state = 'static';
+        this.state = "static";
         this.spriteStep = 0;
+        this.power = 10;
 
         if (this.currentPlayer === "secondPlayer") {
             this.angle = 135;
         } else {
             this.angle = 45;
         }
-        
-        this.power = 10;
 
         this.leftExplodeBlueSprite = new Image();
         this.leftExplodeBlueSprite.src = "../sprites/tank/bluetank/left_explode_blue-Sheet.png"
+        this.rightExplodeBlueSprite = new Image();
+        this.rightExplodeBlueSprite.src = "../sprites/tank/bluetank/right_explode_blue-Sheet.png"
 
-        this.staticBlueSprite = new Image();
-        this.staticBlueSprite.src = "../sprites/tank/bluetank/tankblue.png";
+        this.leftExplodeRedSprite = new Image();
+        this.leftExplodeBlueSprite.src = "../sprites/tank/redtank/left_explode_red-Sheet.png"
+        this.rightExplodeRedSprite = new Image();
+        this.rightExplodeBlueSprite.src = "../sprites/tank/redtank/right_explode_red-Sheet.png"
 
-        this.staticRedSprite = new Image();
-        this.staticRedSprite.src = "../sprites/tank/redtank/tank_red_left.png"
+        this.leftStaticBlueSprite = new Image();
+        this.leftStaticBlueSprite.src = "../sprites/tank/bluetank/tank_left.png";
+        this.rightStaticBlueSprite = new Image();
+        this.rightStaticBlueSprite.src = "../sprites/tank/bluetank/tankblue.png";
+
+        this.leftStaticRedSprite = new Image();
+        this.leftStaticRedSprite.src = "../sprites/tank/redtank/tank_red_left.png"
+        this.rightStaticRedSprite = new Image();
+        this.rightStaticRedSprite.src = "../sprites/tank/redtank/tank_red_right.png"
+
+        this.leftMovingBlueSprite = new Image();
+        this.leftMovingBlueSprite.src = "../sprites/tank/bluetank/left_move_blue-Sheet.png";
+        this.rightMovingBlueSprite = new Image();
+        this.rightMovingBlueSprite.src = "../sprites/tank/bluetank/right_move_blue-Sheet.png"
+
+        this.leftMovingRedSprite = new Image();
+        this.leftMovingRedSprite.src = "../sprites/tank/redtank/left_move_Red-Sheet.png"
+        this.rightMovingRedSprite = new Image();
+        this.rightMovingRedSprite.src = "../sprites/tank/redtank/right_move_red-Sheet.png"
         
         this.tankSelection(this.name);
     }
@@ -39,22 +60,46 @@ class Tank {
         ctx.fillText(this.angle,this.x, this.y - 10);
         ctx.fillText(this.power,this.x, this.y - 20);
 
-        if (this.currentPlayer === "firstPlayer" && this.state === "static") {
-            ctx.drawImage(this.staticBlueSprite,this.x - 50,this.y - 50,this.width,this.height);
-            // ctx.fillRect(this.x,this.y,this.width,this.height);
-            // const sx = (64 * this.spriteStep) % 256;
-            // const sy = Math.floor(this.spriteStep / 4) * 64;
-            // ctx.drawImage(this.leftExplodeBlueSprite,sx,sy,64,64,this.x,this.y,100,100);
-        } else if (this.currentPlayer === "secondPlayer" && this.state === "static") {
-            ctx.drawImage(this.staticRedSprite,this.x - 50,this.y - 50,this.width,this.height);
-        } else if (this.currentPlayer === "firstPlayer" && this.state === "destroyed") {
+        if (this.currentPlayer === "firstPlayer" && this.state === "static" && this.facing === "left") {
+            ctx.drawImage(this.leftStaticBlueSprite,this.x - 50,this.y - 50,this.width,this.height);
+        } else if (this.currentPlayer === "firstPlayer" && this.state === "static" && this.facing === "right") {
+            ctx.drawImage(this.rightStaticBlueSprite,this.x - 50,this.y - 50,this.width,this.height);
+        } else if (this.currentPlayer === "secondPlayer" && this.state === "static" && this.facing === "left") {
+            ctx.drawImage(this.leftStaticRedSprite,this.x - 50,this.y - 50,this.width,this.height);
+        } else if (this.currentPlayer === "secondPlayer" && this.state === "static" && this.facing === "right") {
+            ctx.drawImage(this.rightStaticRedSprite,this.x - 50,this.y - 50,this.width,this.height);
+        } else if (this.currentPlayer === "firstPlayer" && this.state === "destroyed" && this.facing === "left") {
             const sx = (64 * this.spriteStep) % 256;
             const sy = Math.floor(this.spriteStep / 4) * 64;
             ctx.drawImage(this.leftExplodeBlueSprite,sx,sy,64,64,this.x - 50,this.y - 50,100,100);
-        } else if (this.currentPlayer === "secondPlayer" && this.state === "destroyed") {
+        } else if (this.currentPlayer === "firstPlayer" && this.state === "destroyed" && this.facing === "right") {
+            const sx = (64 * this.spriteStep) % 256;
+            const sy = Math.floor(this.spriteStep / 4) * 64;
+            ctx.drawImage(this.rightExplodeBlueSprite,sx,sy,64,64,this.x - 50,this.y - 50,100,100);
+        } else if (this.currentPlayer === "firstPlayer" && this.state === "destroyed" && this.facing === "left") {
             const sx = (64 * this.spriteStep) % 256;
             const sy = Math.floor(this.spriteStep / 4) * 64;
             ctx.drawImage(this.leftExplodeBlueSprite,sx,sy,64,64,this.x - 50,this.y - 50,100,100);
+        } else if (this.currentPlayer === "secondPlayer" && this.state === "destroyed" && this.facing === "right") {
+            const sx = (64 * this.spriteStep) % 256;
+            const sy = Math.floor(this.spriteStep / 4) * 64;
+            ctx.drawImage(this.rightExplodeRedSprite,sx,sy,64,64,this.x - 50,this.y - 50,100,100);
+        } else if (this.currentPlayer === "secondPlayer" && this.state === "destroyed" && this.facing === "left") {
+            const sx = (64 * this.spriteStep) % 256;
+            const sy = Math.floor(this.spriteStep / 4) * 64;
+            ctx.drawImage(this.leftExplodeRedSprite,sx,sy,64,64,this.x - 50,this.y - 50,100,100);
+        } else if (this.currentPlayer === "firstPlayer" && this.state === "moving" && this.facing === "right") {
+            this.moving();
+            ctx.drawImage(this.rightMovingBlueSprite,0,0,64,64,this.x - 50,this.y - 50,100,100);
+        } else if (this.currentPlayer === "firstPlayer" && this.state === "moving" && this.facing === "left") {
+            this.moving();
+            ctx.drawImage(this.leftMovingBlueSprite,0,0,64,64,this.x - 50,this.y - 50,100,100);
+        } else if (this.currentPlayer === "secondPlayer" && this.state === "moving" && this.facing === "right") {
+            this.moving();
+            ctx.drawImage(this.rightMovingRedSprite,0,0,64,64,this.x - 50,this.y - 50,100,100);
+        } else if (this.currentPlayer === "secondPlayer" && this.state === "moving" && this.facing === "left") {
+            this.moving();
+            ctx.drawImage(this.leftMovingRedSprite,0,0,64,64,this.x - 50,this.y - 50,100,100);
         }
     }
 
@@ -93,6 +138,14 @@ class Tank {
         }
         
         this.state = "destroyed";
+    }
+
+    moving() {
+        if (this.state !== "moving") {
+            setInterval(() => {
+                this.spriteStep = (this.spriteStep + 1) % 2;
+            },100)
+        }
     }
 }
 

@@ -5,22 +5,13 @@ class World {
     constructor(context,game) {
         this.game = game;
         this.context = context;
-        this.firstPlayer = new Tank("firstPlayer",40,700,"Zeus");
-        this.secondPlayer = new Tank("secondPlayer",950,700,"Hera");
+        this.firstPlayerFacing = "right";
+        this.secondPlayerFacing = "left";
+        this.firstPlayer = new Tank(this.firstPlayerFacing,"firstPlayer",40,600,"Zeus");
+        this.secondPlayer = new Tank(this.secondPlayerFacing,"secondPlayer",950,600,"Hera");
+
         this.currentPlayer = this.firstPlayer;
         this.players = [this.firstPlayer,this.secondPlayer];
-
-        this.leftMovingBlueSprite = new Image();
-        this.leftMovingBlueSprite.src = "../sprites/tank/bluetank/left_move_blue-Sheet.png";
-        this.rightMovingBlueSprite = new Image();
-        this.rightMovingBlueSprite.src = "../sprites/tank/bluetank/right_move_blue-Sheet.png"
-
-        this.leftMovingRedSprite = new Image();
-        this.leftMovingRedSprite.src = "../sprites/tank/redtank/left_move_Red-Sheet.png"
-        this.rightMovingRedSprite = new Image();
-        this.rightMovingRedSprite.src = "../sprites/tank/redtank/right_move_red-Sheet.png"
-
-        
 
         document.addEventListener('keydown', (event) => {
             if (event.key === " ") {
@@ -32,12 +23,26 @@ class World {
         document.addEventListener('keydown', (event) => {
             if (event.key === 'a' || event.key === 'A') {
                 this.currentPlayer.x -= this.currentPlayer.speed;
+                this.currentPlayer.state = "moving";
+            }
+
+            if (this.currentPlayer === this.firstPlayer) {
+                this.firstPlayerFacing = "left";
+            } else if (this.currentPlayer === this.secondPlayer) {
+                this.secondPlayerFacing = "left";
             }
         });
 
         document.addEventListener('keydown', (event) => {
             if (event.key === 'd' || event.key === 'D'){
                 this.currentPlayer.x += this.currentPlayer.speed;
+                this.currentPlayer.state = "moving";
+            }
+
+            if (this.currentPlayer === this.firstPlayer) {
+                this.firstPlayerFacing = "right";
+            } else if (this.currentPlayer === this.secondPlayer) {
+                this.secondPlayerFacing = "right";
             }
         });
 
@@ -113,10 +118,6 @@ class World {
                 this.switchTurns();
             }
         });
-    }
-
-    createWorld() {
-        
     }
 
     switchTurns() {

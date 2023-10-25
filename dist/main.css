@@ -17,3 +17,55 @@ canvas {
 body {
   background-color: black;
 }
+
+h1 {
+  margin-top: 0;
+  color: red;
+  display: flex;
+  justify-content: center;
+  font-family: fantasy;
+}
+
+.left-block {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 22%;
+  height: 100%;
+  background-image: url(https://i.pinimg.com/originals/29/18/b7/2918b7ada1896e88156ebe8428460280.gif);
+  background-position: center;
+}
+
+.right-block {
+  position: fixed;
+  top: 0;
+  left: 1123px;
+  width: 22%;
+  height: 100%;
+  background-image: url(https://i.pinimg.com/originals/29/18/b7/2918b7ada1896e88156ebe8428460280.gif);
+  background-position: center;
+  transform: scaleX(-1);
+}
+
+h1 {
+  gap: 10px;
+}
+
+.health-bar {
+  width: 200px;
+  height: 20px;
+  background-color: #ccc;
+  border: 1px solid #000;
+}
+
+.health {
+  height: 100%;
+  background-color: #0f0;
+  width: 100%;
+  transition: width 0.5s;
+}
+
+.health.decreasing {
+  background-color: #f00;
+  width: 50%;
+}

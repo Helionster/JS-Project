@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     game.world = new World(context, game)
 
     myCanvas.width = 1000;
-    myCanvas.height = 750;
+    myCanvas.height = 650;
 
     myCanvas.style.border = "3px solid black"
 

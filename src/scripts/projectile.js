@@ -11,7 +11,7 @@ class Projectile {
     draw(ctx) {
         ctx.beginPath();
         ctx.arc(this.x,this.y,3,0, 2 * Math.PI);
-        ctx.fillStyle = "Black";
+        ctx.fillStyle = "White";
         ctx.fill();
         ctx.closePath();
     }
