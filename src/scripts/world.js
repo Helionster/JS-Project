@@ -132,7 +132,7 @@ class World {
             let boundAnimate = this.animate.bind(this);
             window.requestAnimationFrame(boundAnimate);
         } else {
-            if (this.currentPlayer.spriteStep === 10) {
+            if (this.firstPlayer.spriteStep === 10 || this.secondPlayer.spriteStep === 10) {
                 alert("Game Over! Restart?") 
                 this.resetGame();
             } else {

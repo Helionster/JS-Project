@@ -1,3 +1,5 @@
+![plot](./Game.png) 
+
 Description
     My project will be based on Pocket Tanks with my own personal spin on it. Battlefield: Tanks, will have two opposing tanks that shoot projectiles and gravity, in order to destroy your enemies. Battlefield: Tanks will be a turn-based game where each turn there is a precise angle and power indicator. As long as the projectile is on screen the opposing tank that comes into contact with the projectile will be depleted of health. The game will be over once a tank's health reaches 0. 
 

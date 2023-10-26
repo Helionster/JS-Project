@@ -88,7 +88,6 @@ class Tank {
         } else if (this.currentPlayer === "firstPlayer" && this.state === "moving" && this.facing === "right") {
             this.moving();
             ctx.drawImage(this.rightMovingBlueSprite,0,0,64,64,this.x - 50,this.y - 50,100,100);
-            console.log("Bob")
         } else if (this.currentPlayer === "firstPlayer" && this.state === "moving" && this.facing === "left") {
             this.moving();
             ctx.drawImage(this.leftMovingBlueSprite,0,0,64,64,this.x - 50,this.y - 50,100,100);
