@@ -23,5 +23,5 @@ Feature Implementation
     Another feature in my project would be collosion detection and out of frame functionality.
 ![plot](/Collosion.png)
 
-Features In Development 
+Features In Development: 
     Making a leaderboard. AI scalability in difficulty. Timer in between turns. Terrain generation and manpulation. Wide range of tank selection.
