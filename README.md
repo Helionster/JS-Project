@@ -1,27 +1,27 @@
-My project will be based on Pocket Tanks with my own personal spin on it. Battlefield: Tanks, will have two opposing tanks that shoot projectiles, affected by terrain and gravity, in order to destroy your enemies. There will be a wide range of tanks to choose
-from, each having its own edge over others i.e. more health or damage. Battlefield: Tanks will be a turn-based game where each turn there is a countdown representing the amount of time you have to move and be precise with your angle as well as your power. As long as the projectile is on screen any terrain that has contact with the projectile will be affected. My project will include an AI to play against that's scaleable in difficulty. The game will be over once a tank's health reaches 0. If I have more time I would want to implement a scoreboard to show how many wins a certain user has.
+Description
+    My project will be based on Pocket Tanks with my own personal spin on it. Battlefield: Tanks, will have two opposing tanks that shoot projectiles and gravity, in order to destroy your enemies. Battlefield: Tanks will be a turn-based game where each turn there is a precise angle and power indicator. As long as the projectile is on screen the opposing tank that comes into contact with the projectile will be depleted of health. The game will be over once a tank's health reaches 0. 
 
-In Battlefield: Tanks, users will be able to:
-    - Core Features/ Functionlities Shoot a projectile, affected by terrain and gravity. Projectiles affect terrain and deal damage to tanks. You can adjust the angle and power. The game is over if one tank runs out of health. 
-    - Feature: Have a scaleable difficulty AI to play against.
-    - Feature: Have a range of tanks to choose from.
-    - Feature: Have a scoreboard to show user wins.
-    - Feature: Have a countdown at the start of every turn and if it's not your turn you can't move.
+Controls
+    Battlefield: Tanks is played with keyboard. Keys A and D are for movement left and right respectively. Keys W and S are for adjusting the angle respectively. Keys Q and E are for adjusting the power respectively. The fire button would be the spacebar.
 
-In addition, this project will include:
-    - Instructions, README 
-    - Potential Improvements 
-    - About Me Links
+![plot](./Keys.png) 
+![plot](./Spacebar.png)
 
-Wireframe :
-    ![plot](./Wireframe.png)
+Technical Details 
+    Battlefield:Tanks was coded using vanilla Javascript. The game was drawn on canvas and I also used some HTML and CSS. I also implemented some visual interperation of an angle to display your direction that you'll be firing towards as well as a power guage to visual see your power in numbers.
 
-Technologies, Libraries, APIs: 
-    I plan on using https://itch.io/game-assets to apply sprites and texture to my game. I will also be using https://www.w3schools.com/jsref/api_canvas.asp, canvas API to generate curves for my projectiles.
+Feature Implementation
+    I have event listeners on several buttons to determine if any given tank is allowed to act during a certain action.
+![plot](./AngleAndPower.png) 
 
-Implementation Timeline
-    Friday Afternoon & Weekend: Implement the shooting functionality and correct gravity implemention. Register the hits on enemy tanks and decrease health.
-    Monday: Have projectiles affect the terrain. Create a functional menu. Finish personal links and controls /fire button.
-    Tuesday: Make a scaleable AI to play against. Texture and sprites. 
-    Wednesday: Have a leaderboard. Sound files. Have a mute button. Test runs.
-    Thursday: Run my project a few more times to make sure everything works.
+    My project includes implemention of gravity manpulation on my projectiles and repositioned them to fire from the tip of the tank sprite regardless of the current player.
+![plot](./Projectile.png) 
+
+    A decaying health bar for when a target get damaged. 
+![plot](/HealthBar.png)
+
+    Another feature in my project would be collosion detection and out of frame functionality.
+![plot](/Collosion.png)
+
+Features In Development 
+    Making a leaderboard. AI scalability in difficulty. Timer in between turns. Terrain generation and manpulation. Wide range of tank selection.

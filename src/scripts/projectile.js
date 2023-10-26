@@ -1,11 +1,19 @@
 class Projectile { 
-    constructor(x,y,degrees,power) {
-        this.x = x + 20; 
-        this.y = y + 10; 
+    constructor(x,y,degrees,power,owner,currentPlayer) {
         this.angle = (degrees * Math.PI) / 180;
-        this.power = power;
+        this.power = power / 3;
         this.gravity = 0.2;
         this.velocity = 0;
+        this.owner = owner;
+        this.currentPlayer = currentPlayer;
+
+        if (currentPlayer === "firstPlayer") {
+            this.x = x + 20; 
+            this.y = y + 5; 
+        } else {
+            this.x = x - 20;
+            this.y = y + 5;
+        }
     }
 
     draw(ctx) {

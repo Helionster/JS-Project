@@ -7,11 +7,16 @@ canvas {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-top: -15px;
   margin-left: auto;
   margin-right: auto;
   display: block;
   width: 800px;
+}
+
+audio {
+  position: absolute;
+  margin-left: 5px;
+  bottom: 20px;
 }
 
 body {
@@ -24,48 +29,101 @@ h1 {
   display: flex;
   justify-content: center;
   font-family: fantasy;
-}
-
-.left-block {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 22%;
-  height: 100%;
-  background-image: url(https://i.pinimg.com/originals/29/18/b7/2918b7ada1896e88156ebe8428460280.gif);
-  background-position: center;
-}
-
-.right-block {
-  position: fixed;
-  top: 0;
-  left: 1123px;
-  width: 22%;
-  height: 100%;
-  background-image: url(https://i.pinimg.com/originals/29/18/b7/2918b7ada1896e88156ebe8428460280.gif);
-  background-position: center;
-  transform: scaleX(-1);
-}
-
-h1 {
   gap: 10px;
 }
 
-.health-bar {
-  width: 200px;
-  height: 20px;
-  background-color: #ccc;
-  border: 1px solid #000;
+.container {
+  display: flex;
+  height: 92vh;
 }
 
-.health {
+.left-block, .right-block {
+  top: 0;
   height: 100%;
-  background-color: #0f0;
-  width: 100%;
-  transition: width 0.5s;
+  background-image: url(https://i.pinimg.com/originals/29/18/b7/2918b7ada1896e88156ebe8428460280.gif);
+  background-position: center;
+  background-size: cover;
 }
 
-.health.decreasing {
-  background-color: #f00;
+.left-block {
+  left: 0;
+  width: 22%;
+}
+
+.middle-block {
+  width: 56%;
+}
+
+.right-block {
+  right: 0;
+  width: 22%;
+  transform: scaleX(-1);
+}
+
+.bottom-block {
+  display: flex;
+  height: 195px;
+}
+
+.instructions {
+  width: 50px;
+  height: 50px;
+}
+
+header {
+  height: 5vh;
+}
+
+.angle, .power {
   width: 50%;
+  height: 100%;
+  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.angle img {
+  height: 100px;
+  width: 100px;
+  transform-origin: left;
+}
+
+.anglename, .powername {
+  font-family: fantasy;
+  font-weight: bold;
+  font-size: xx-large;
+  margin-bottom: 20px;
+}
+
+.power {
+  width: 50%;
+  height: 100%;
+  background-color: red;
+}
+
+.power #actualpower {
+  font-family: fantasy;
+  font-weight: bold;
+  font-size: xx-large;
+}
+
+.left-block .instructions {
+  background-color: red;
+  width: 100%;
+  height: 270px;
+  font-family: fantasy;
+  font-weight: bold;
+  font-size: xx-large;
+}
+
+.right-block .instructions {
+  background-color: red;
+  width: 100%;
+  height: 270px;
+  transform: scaleX(-1);
+  font-family: fantasy;
+  font-weight: bold;
+  font-size: xx-large;
 }
