@@ -146,8 +146,8 @@ class World {
 
     checkCollision() {
         this.players.forEach((player) => {
-            if ((Math.abs(this.projectile?.x - player.x - 5) <= 15 && this.projectile.owner !== player)
-                && (Math.abs(this.projectile?.y - player.y - 5) <= 15 && this.projectile.owner !== player)) {
+            if ((Math.abs(this.projectile?.x - player.x - 5) <= 10 && this.projectile.owner !== player)
+                && (Math.abs(this.projectile?.y - player.y - 5) <= 10 && this.projectile.owner !== player)) {
                 console.log(`You hit ${player.name}`)
                 player.health -= this.currentPlayer.damage;
                 console.log(player.health);
